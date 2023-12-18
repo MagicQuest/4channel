@@ -1,0 +1,30 @@
+.header {
+  /* font-family: forte; */
+  text-align: center;
+  overflow: hidden;
+  /*height: calc(--fsize*400px);*/
+  height: calc(2.6667px*var(--fsize));
+  position: relative;
+}
+
+.header > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/*.header > h1*/#ptitle {
+  font-size: calc(var(--fsize) * 1.45);
+  -webkit-text-fill-color: /*#aac6ff*/#F1BB96;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: /*#2e09ff*/#632500;
+  margin: .34em 0 .34em 0;
+  z-index: 10;
+  position: relative;
+  transition: font-size .25s ease;
+}
+
+/*.header > h1:hover*/#ptitle:hover {
+  font-size: calc(var(--fsize) * 1.45 + 5px);
+}

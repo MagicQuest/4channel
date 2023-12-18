@@ -1,0 +1,21 @@
+{
+  "name": "4channel",
+  "version": "1.0.0",
+  "description": "67.61.21.90",
+  "main": "app.js",
+  "scripts": {
+    "test": "start app"
+  },
+  "keywords": [
+    "4chan",
+    "imageboard"
+  ],
+  "author": "deez",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0"
+  }
+}

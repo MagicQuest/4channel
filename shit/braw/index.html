@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>/b/oard (no react)</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/conststyles.css">
+    <style>
+        .header {
+            font-family: forte;
+            text-align: center;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+
+        .header > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        /*.header > h1*/#ptitle {
+            font-size: 75px;
+            -webkit-text-fill-color: /*#aac6ff*/#F1BB96;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: /*#2e09ff*/#632500;
+            z-index: 10;
+            position: relative;
+            transition: font-size .25s ease;
+        }
+
+        /*.header > h1:hover*/#ptitle:hover {
+            font-size: 80px;
+        }
+
+        #main {
+            font-family: arial,helvetica,sans-serif;
+            color: #632500;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/tile.png">
+        <h1 id="ptitle">67.61.21.90</h1>
+    </div>
+    
+    <main style="background-color: #F1BB96;" id="main">
+        <hr>
+        <h1 style="text-align: center;">
+            /b/ - Random
+        </h1>
+        <hr>
+        <div class="message">
+            <p>File: <a href="timestamp.png">nigga.png</a> (198 KB, 500x500)</p>
+            <div style="display: flex; flex-direction: row; margin-left: 20px; ">
+                <a href="timestamp.png"><img src="/tile.png" style="width: 250px; height: 250px;"></a>
+                <div style="margin-left: 20px;">
+                    <input type="checkbox">
+                    <span style="color: rgb(204, 17, 5); font-weight: bold;">    when you forget your headphones at the gym    </span>
+                    <span style="font-weight: bold; color: darkgreen;">Anonymous</span>
+                    <span>08/12/23 (Sat)01:05:32</span>
+                    <span>No.</span><span>421</span>
+                    <span>[Reply]</span>
+                    <br>
+                    <p>${CONTENT}</p>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <post-msg imgsrc="/tile.png" filename="tile.png" size="198" data-width="500" data-height="500" data-id="421" subject="imma fire my lazar" timestamp="1699168594640">
+            OH DAMN THIS IS CONTENT
+        </post-msg>
+    </main>
+
+    <script>
+        class Message extends HTMLElement {
+            constructor() {
+                super();
+            }
+
+            connectedCallback() {
+                console.log("oohoh your so skibidi ", this.innerHTML);
+                const CONTENT = this.innerHTML;
+                this.innerHTML = "";
+                
+                const shadow = this.attachShadow({mode: "open"});
+
+                const imgsrc = this.getAttribute("imgsrc");
+                const filename = this.getAttribute("filename");
+                const size = this.getAttribute("size");
+                const width = this.getAttribute("data-width");
+                const height = this.getAttribute("data-height");
+                const id = this.getAttribute("data-id");
+                const subject = this.getAttribute("subject");
+                const time = parseInt(this.getAttribute("timestamp")); //Date doesn't like string very much (weird)
+
+                const date = new Date(time);
+                const tdate = date.toLocaleString(undefined, {dateStyle:"short"});
+                const tday = date.toLocaleString("en-us", {weekday: "short"});
+                const ttime = date.toLocaleString("en-us", {timeStyle: "medium"});
+
+                this.className = "message";
+
+                const filep = document.createElement("p");
+                filep.style = "margin:0;";
+                filep.innerHTML = `File: <a href="${imgsrc}">${filename}</a> (${size} KB, ${width}x${height})`;
+                //i was on crack when i wrote this originally because it barely works and this filep doesn't even show up because i never appended it
+                shadow.appendChild(filep);
+
+                const outerContent = document.createElement("div");
+                outerContent.style = "display: flex; flex-direction: row; margin-left: 20px;";
+                outerContent.innerHTML = `<a href="${imgsrc}"><img src="${imgsrc}" style="width: 250px; height: 250px;"></a>`;
+
+                const contentDiv = document.createElement("div");
+                contentDiv.style = "margin-left: 20px;";
+                contentDiv.innerHTML = `<input type="checkbox">
+                ${subject ? `<span style="color: rgb(204, 17, 5); font-weight: bold;">    ${subject}    </span>` : ""}
+                <span style="font-weight: bold; color: darkgreen;">Anonymous</span>
+                <span>${tdate} (${tday})${ttime}</span>
+                <span>No.</span><span>${id}</span>
+                <span>[Reply]</span>
+                <br>
+                <p>${CONTENT}</p>`
+
+                outerContent.appendChild(contentDiv);
+
+                shadow.appendChild(outerContent);
+                shadow.appendChild(document.createElement("hr"));
+
+                //const image = document.createElement("a");
+                //image.href = imgsrc;
+                //image.innerHTML = `<img src="${imgsrc}" style="width: 250px; height: 250px;">`;
+//
+                //context.appendChild(image);
+
+            }
+        }
+
+        customElements.define("post-msg", Message);
+
+        if(Math.random() > .25) {
+            //lol i never use query selector
+            document.querySelector(".header").style.filter = `hue-rotate(${Math.floor(Math.random()*360)}deg)`;
+        }
+
+        (async function() {
+            //let data = await fetch("/b/data");
+            //data = await data.text();
+            const data = await((await fetch("/b/data")).text()); //https://hackernoon.com/why-senior-devs-write-dumb-code-and-how-to-spot-a-junior-from-a-mile-away-27fa263b101a
+            
+        })();
+    </script>
+    </body>
+</html>

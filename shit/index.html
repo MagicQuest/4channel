@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>67.61.21.90</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="conststyles.css">
+    <style>
+        .header {
+            font-family: forte;
+            text-align: center;
+            overflow: hidden;
+            height: 266.67px;
+            position: relative;
+        }
+
+        .header > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        /*.header > h1*/#ptitle {
+            font-size: 100px;
+            -webkit-text-fill-color: /*#aac6ff*/#F1BB96;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: /*#2e09ff*/#632500;
+            z-index: 10;
+            position: relative;
+            transition: font-size .25s ease;
+        }
+
+        /*.header > h1:hover*/#ptitle:hover {
+            font-size: 105px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="tile.png">
+        <h1 id="ptitle">67.61.21.90</h1>
+    </div>
+    
+    <div style="text-align: center;">
+        <h1>yo this is gas anyways go to <a href="/b/">/b/</a> for random shit</h1>
+    </div>
+
+    <script>
+        if(Math.random() > .25) {
+            //lol i never use query selector
+            document.querySelector(".header").style.filter = `hue-rotate(${Math.floor(Math.random()*360)}deg)`;
+        }
+    </script>
+    </body>
+</html>

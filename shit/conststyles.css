@@ -1,0 +1,24 @@
+/*img:hover {
+    height: 200%;
+}*/
+
+@font-face {
+    font-family: forte;
+    src: url(FORTE.WOFF);
+}
+
+a {
+    background-color: initial;
+    color: #0000EE;
+    transition: background-color .25s ease-in-out, color .25s ease-in-out;
+}
+
+a:hover { 
+    background-color: rgb(255, 144, 70);
+    color: #632500;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+}

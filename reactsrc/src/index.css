@@ -1,0 +1,44 @@
+/*img:hover {
+    height: 200%;
+}*/
+
+/*@font-face {
+  font-family: forte;
+  src: url("http://localhost/FORTE.WOFF");
+}
+
+@font-face {
+  font-family: vtc;
+  src: url("http://localhost/VTC Letterer Pro Regular.ttf");
+}
+
+@font-face {
+  font-family: troika;
+  src: url("http://localhost/troika.otf");
+}*/
+
+a {
+  background-color: initial;
+  color: #0000EE;
+  transition: background-color .25s ease-in-out, color .25s ease-in-out;
+}
+
+a:hover { 
+  background-color: #ff9046;
+  color: #632500;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+button:hover {
+  font-weight: bold;
+}
+
+button:disabled, input:disabled {
+  cursor:not-allowed;
+}
